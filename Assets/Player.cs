@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Animator anim {  get; private set; }
+
     private PlayerInputSet input;
     private StateMachine stateMachine;
 
@@ -12,6 +14,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        anim = GetComponentInChildren<Animator>();
+
         stateMachine = new StateMachine();
         input = new PlayerInputSet();
 
@@ -23,7 +27,6 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         input.Enable();
-
 
         input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
