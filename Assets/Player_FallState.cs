@@ -12,7 +12,9 @@ public class Player_FallState : Player_AiredState
 
         if (player.groundDetected)
             stateMachine.ChangeState(player.idleState);
+
+        if (player.wallDecteced)
+            stateMachine.ChangeState(player.wallSlideState);
+
     }
-
-
 }
