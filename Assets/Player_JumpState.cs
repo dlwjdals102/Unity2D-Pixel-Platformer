@@ -17,7 +17,8 @@ public class Player_JumpState : Player_AiredState
     {
         base.Update();
 
-        if (rb.linearVelocity.y < 0)
+        // 점프 공격 상태이면 낙하 상태로 진입x
+        if (rb.linearVelocity.y < 0 && stateMachine.currentState != player.jumpAttackState)
             stateMachine.ChangeState(player.fallState);
     }
 }
