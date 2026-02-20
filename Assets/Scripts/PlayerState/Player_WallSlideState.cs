@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class Player_WallSlideState : EntityState
 {
     public Player_WallSlideState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
@@ -20,7 +18,9 @@ public class Player_WallSlideState : EntityState
         if (player.groundDetected)
         {
             stateMachine.ChangeState(player.idleState);
-            player.Flip();
+
+            if (player.moveInput.x != player.facingDir)
+                player.Flip();
         }
     }
 

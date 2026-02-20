@@ -13,7 +13,7 @@ public class ParallaxBackground : MonoBehaviour
     {
         mainCamera = Camera.main;
         cameraHalfWidth = mainCamera.orthographicSize * mainCamera.aspect;
-        CalculateImageLength();
+        InitializeLayers();
     }
 
     // 배경 떨림을 방지하기 위한 FixedUpdate
@@ -33,7 +33,7 @@ public class ParallaxBackground : MonoBehaviour
         }
     }
 
-    private void CalculateImageLength()
+    private void InitializeLayers()
     {
         foreach (var layer in backgroundLayer)
             layer.CalculateImageWidth();
