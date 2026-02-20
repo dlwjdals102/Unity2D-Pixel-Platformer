@@ -1,4 +1,4 @@
-public class Player_DashState : EntityState
+public class Player_DashState : PlayerState
 {
     private float originalGravityScale;
     private int dashDir;
