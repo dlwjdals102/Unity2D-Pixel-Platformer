@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 
-public class Entity_Health : MonoBehaviour
+public class Entity_Health : MonoBehaviour, IDamageable
 {
     private Entity entity;
     private Entity_VFX entityVfx;
@@ -56,6 +56,7 @@ public class Entity_Health : MonoBehaviour
     private void Die()
     {
         isDead = true;
+        entity.EntityDeath();
     }
 
     private Vector2 CalculateKnockback(float damage, Transform damageDealer)
