@@ -132,7 +132,8 @@ GameObject:
   - component: {fileID: 274070546}
   - component: {fileID: 274070545}
   - component: {fileID: 274070548}
-  - component: {fileID: 274070547}
+  - component: {fileID: 274070550}
+  - component: {fileID: 274070549}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -257,20 +258,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &274070547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274070542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbc6f8299b1d7c847b8e70d2ea69eebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
-  maxHp: 100
-  isDead: 0
 --- !u!114 &274070548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +276,40 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &274070549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274070542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a9b28d15e96f004a9b0a899183939dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_VFX
+  onDamageMaterial: {fileID: 2100000, guid: 89d45d987d28ddc46bb6af1619cde812, type: 2}
+  onDamageVfxDuration: 0.15
+--- !u!114 &274070550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274070542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc6f8299b1d7c847b8e70d2ea69eebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
+  maxHp: 100
+  currentHp: 0
+  isDead: 0
+  knockbackPower: {x: 1.5, y: 2.5}
+  heavyKnockbackPower: {x: 7, y: 7}
+  knockbackDuration: 0.2
+  heavyKnockbackDuration: 0.5
+  heavyDamageThreshold: 0.3
 --- !u!1 &387162383
 GameObject:
   m_ObjectHideFlags: 0
@@ -3017,7 +3038,8 @@ GameObject:
   - component: {fileID: 1025205148}
   - component: {fileID: 1025205147}
   - component: {fileID: 1025205152}
-  - component: {fileID: 1025205151}
+  - component: {fileID: 1025205154}
+  - component: {fileID: 1025205153}
   m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -3140,20 +3162,6 @@ Transform:
   - {fileID: 612167646}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1025205151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1025205146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbc6f8299b1d7c847b8e70d2ea69eebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
-  maxHp: 100
-  isDead: 0
 --- !u!114 &1025205152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3172,6 +3180,40 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &1025205153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025205146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a9b28d15e96f004a9b0a899183939dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_VFX
+  onDamageMaterial: {fileID: 2100000, guid: 89d45d987d28ddc46bb6af1619cde812, type: 2}
+  onDamageVfxDuration: 0.15
+--- !u!114 &1025205154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025205146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc6f8299b1d7c847b8e70d2ea69eebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
+  maxHp: 100
+  currentHp: 0
+  isDead: 0
+  knockbackPower: {x: 1.5, y: 2.5}
+  heavyKnockbackPower: {x: 7, y: 7}
+  knockbackDuration: 0.2
+  heavyKnockbackDuration: 0.5
+  heavyDamageThreshold: 0.3
 --- !u!1 &1058079261
 GameObject:
   m_ObjectHideFlags: 0
