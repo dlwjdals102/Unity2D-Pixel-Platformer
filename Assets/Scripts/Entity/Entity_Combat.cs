@@ -3,7 +3,7 @@ using UnityEngine;
 public class Entity_Combat : MonoBehaviour
 {
     private Entity_VFX vfx;
-    public float damage = 10;
+    private EntityStats stats;
 
     [Header("Target detection")]
     [SerializeField] private Transform targetCheck;
@@ -13,6 +13,7 @@ public class Entity_Combat : MonoBehaviour
     private void Awake()
     {
         vfx = GetComponent<Entity_VFX>();
+        stats = GetComponent<EntityStats>();
     }
 
     public void PerformAttack()
@@ -23,7 +24,7 @@ public class Entity_Combat : MonoBehaviour
 
             if (damageable == null) continue;
 
-            damageable.TakeDamage(damage, transform);
+            damageable.TakeDamage(stats.GetDamage(), transform);
             vfx.CreateOnHitVFX(target.transform);
         }
     }

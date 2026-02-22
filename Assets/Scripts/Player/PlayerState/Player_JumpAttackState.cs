@@ -9,6 +9,7 @@ public class Player_JumpAttackState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        SyncAttackSpeed();
         touchedGround = false;
 
         player.SetVelocity(player.jumpAttackVelocity.x * player.facingDir, player.jumpAttackVelocity.y);

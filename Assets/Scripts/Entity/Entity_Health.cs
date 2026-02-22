@@ -6,9 +6,9 @@ public class Entity_Health : MonoBehaviour, IDamageable
 {
     private Slider healthBar;
     private Entity entity;
+    private EntityStats stats;
     private Entity_VFX entityVfx;
 
-    [SerializeField] protected float maxHp = 100;
     [SerializeField] protected float currentHp;
     [SerializeField] protected bool isDead;
 
@@ -25,15 +25,16 @@ public class Entity_Health : MonoBehaviour, IDamageable
     {
         entity = GetComponent<Entity>();
         entityVfx = GetComponent<Entity_VFX>();
+        stats = GetComponent<EntityStats>();
         healthBar = GetComponentInChildren<Slider>();
 
-        currentHp = maxHp;
+        currentHp = stats.GetMaxHealth();
         UpdateHealthBar();
     }
 
-    public virtual void TakeDamage(float damage, Transform damageDealer)
+    public virtual bool TakeDamage(float damage, Transform damageDealer)
     {
-        if (isDead) return;
+        if (isDead) return false;
 
         if (entity != null)
         {
@@ -45,10 +46,21 @@ public class Entity_Health : MonoBehaviour, IDamageable
         if (entityVfx != null)
             entityVfx.PlayOnDamageVfx();
 
-        ReduceHp(damage);
+        ReduceHealth(damage);
+
+        return true;
     }
 
-    protected void ReduceHp(float damage)
+    public void IncreaseHealth(float amount)
+    {
+        if (isDead) return;
+
+        currentHp = Mathf.Min(currentHp + amount, stats.GetMaxHealth());
+
+        UpdateHealthBar();
+    }
+
+    protected void ReduceHealth(float damage)
     {
         currentHp -= damage;
         UpdateHealthBar();
@@ -68,7 +80,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         if (healthBar == null)
             return;
 
-        healthBar.value = currentHp / maxHp;
+        healthBar.value = currentHp / stats.GetMaxHealth();
     }
 
     private Vector2 CalculateKnockback(float damage, Transform damageDealer)
@@ -87,6 +99,6 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
     private bool IsHeavyDamage(float damage)
     {
-        return (damage / maxHp) > heavyDamageThreshold;
+        return (damage / stats.GetMaxHealth()) > heavyDamageThreshold;
     }
 }

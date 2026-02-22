@@ -558,6 +558,7 @@ GameObject:
   - component: {fileID: 2740347122591077127}
   - component: {fileID: 7500605980882094436}
   - component: {fileID: 5287426262001078827}
+  - component: {fileID: 420083938032243196}
   m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -693,7 +694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6c2277e90d3c5479d0a689a672dd00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Combat
-  damage: 10
   targetCheck: {fileID: 2811309321695488252}
   targetCheckRadius: 1
   whatIsTarget:
@@ -711,7 +711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc6f8299b1d7c847b8e70d2ea69eebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
-  maxHp: 100
   currentHp: 0
   isDead: 0
   knockbackPower: {x: 1.5, y: 2.5}
@@ -735,6 +734,30 @@ MonoBehaviour:
   onDamageVfxDuration: 0.15
   hitVfx: {fileID: 2724049502967198278, guid: 7acb52ef6a997a64e89b09019507cf94, type: 3}
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &420083938032243196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538610361018481250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef22ce92aa0c5b47b38737da24da7d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityStats
+  maxHealth:
+    baseValue: 100
+    modifiers: []
+  damage:
+    baseValue: 10
+    modifiers: []
+  armor:
+    baseValue: 0
+    modifiers: []
+  attackSpeed:
+    baseValue: 1
+    modifiers: []
 --- !u!1 &8882175878740769222
 GameObject:
   m_ObjectHideFlags: 0
