@@ -7,6 +7,7 @@ public class Player : Entity
     public static event Action onPlayerDeath;
 
     public PlayerInputSet input { get; private set; }
+    public UI ui { get; private set; }
 
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
@@ -49,7 +50,10 @@ public class Player : Entity
     {
         base.Awake();
 
+        ui = FindAnyObjectByType<UI>();
+
         input = new PlayerInputSet();
+        ui.SetupControlsUI(input);
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
