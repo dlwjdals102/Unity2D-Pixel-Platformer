@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    public static Player instance;
+
     public static event Action onPlayerDeath;
 
     public PlayerInputSet input { get; private set; }
@@ -50,6 +52,8 @@ public class Player : Entity
     {
         base.Awake();
 
+        instance = this;
+
         ui = FindAnyObjectByType<UI>();
 
         input = new PlayerInputSet();
@@ -91,6 +95,11 @@ public class Player : Entity
     private void OnDisable()
     {
         input.Disable();
+    }
+
+    public void Teleport(Vector3 position)
+    {
+        transform.position = position;
     }
 
     public void EnterAttackStateWithDelay()
