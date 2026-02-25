@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
@@ -14,7 +11,8 @@ public class SaveManager : MonoBehaviour
 
     private GameData gameData;
     private FileDataHandler dataHandler;
-    private string selectedProfileId;
+
+    [SerializeField] private string selectedProfileId;
 
 
     private void Awake()
@@ -40,6 +38,7 @@ public class SaveManager : MonoBehaviour
     public void NewGame()
     {
         gameData = new GameData();
+        dataHandler.SavaData(gameData, selectedProfileId);
     }
 
     public void LoadGame()
@@ -52,8 +51,7 @@ public class SaveManager : MonoBehaviour
             return;
         }
 
-        foreach (var saveable in FindISaveables())
-            saveable.LoadData(gameData);
+        SyncMemoryToScene();
     }
 
     public void SaveGame()
@@ -64,18 +62,32 @@ public class SaveManager : MonoBehaviour
             return;
         }
 
-        foreach (var saveable in FindISaveables())
-            saveable.SaveData(ref gameData);
-
+        UpdateSceneToMemory();
         dataHandler.SavaData(gameData, selectedProfileId);
-
     }
-    private void OnApplicationQuit()
+
+    // 메모리 데이터를 씬의 객체들에게 주입 (씬 이동 시 사용)
+    public void SyncMemoryToScene()
     {
-        SaveGame();
+        foreach (var saveable in FindAllSaveables())
+        {
+            saveable.LoadData(gameData);
+        }
     }
 
-    private List<ISaveable> FindISaveables()
+    // 씬의 객체 데이터를 메모리에만 업데이트 (씬 이동 직전 사용)
+    public void UpdateSceneToMemory()
+    {
+        if (gameData == null)
+            return;
+
+        foreach (var saveable in FindAllSaveables())
+        {
+            saveable.SaveData(ref gameData);
+        }
+    }
+
+    private List<ISaveable> FindAllSaveables()
     {
         return
             FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None)

@@ -6608,6 +6608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveManager
   fileName: ppg.json
+  useEncryption: 0
 --- !u!4 &1978103175
 Transform:
   m_ObjectHideFlags: 0

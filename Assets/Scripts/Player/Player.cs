@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Player : Entity
+public class Player : Entity, ISaveable
 {
     public static Player instance;
 
@@ -114,5 +114,15 @@ public class Player : Entity
     {
         yield return new WaitForEndOfFrame();
         stateMachine.ChangeState(basicAttackState);
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        
+    }
+
+    public void LoadData(GameData data)
+    {
+        Teleport(data.playerPosition);
     }
 }

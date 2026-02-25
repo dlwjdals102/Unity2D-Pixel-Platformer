@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
 
     public UI_Options optionsUI { get; private set; }
     public UI_FadeScreen fadeScreen { get; private set; }
+    public UI_DeathScreen deathScreen { get; private set; }
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class UI : MonoBehaviour
 
         optionsUI = GetComponentInChildren<UI_Options>(true);
         fadeScreen = GetComponentInChildren<UI_FadeScreen>(true);
+        deathScreen = GetComponentInChildren<UI_DeathScreen>(true);
     }
 
     public void SetupControlsUI(PlayerInputSet inputSet)
@@ -33,6 +35,12 @@ public class UI : MonoBehaviour
 
         StopPlayerControls(enable);
         Time.timeScale = enable ? 0f : 1f;
+    }
+
+    public void OpenDeathScreenUI()
+    {
+        deathScreen.gameObject.SetActive(true);
+        input.Disable();
     }
 
     public void StopPlayerControls(bool stopControls)

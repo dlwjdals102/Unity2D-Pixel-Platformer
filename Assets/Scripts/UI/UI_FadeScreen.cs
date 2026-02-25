@@ -11,7 +11,7 @@ public class UI_FadeScreen : MonoBehaviour
     private void Awake()
     {
         fadeImage = GetComponent<Image>();
-        fadeImage.color = new Color(0, 0, 0, 1);
+        //fadeImage.color = new Color(0, 0, 0, 1);
     }
 
     public void DoFadeIn(float duration = 1) // black > transperent

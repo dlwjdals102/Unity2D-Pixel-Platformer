@@ -1,20 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum RespawnType
-{
-    Enter,
-    Exit,
-    None
-}
 
-public class Object_Waypoint : MonoBehaviour
+
+public class Object_Waypoint : MonoBehaviour, ISaveable
 {
     [SerializeField] private string transferToScene;
     [Space]
     [SerializeField] private RespawnType waypointType;
     [SerializeField] private RespawnType conntedWaypoint;
-    [SerializeField] private Transform respwanPoint;
+    [SerializeField] private Transform respawnPoint;
     [SerializeField] private bool canBeTriggered = true;
 
     public void SetCanBeTriggered(bool canBeTriggered)
@@ -29,7 +24,7 @@ public class Object_Waypoint : MonoBehaviour
 
     public Vector3 GetPosition()
     {
-        return respwanPoint == null ? transform.position : respwanPoint.position;
+        return respawnPoint == null ? transform.position : respawnPoint.position;
     }
 
     private void OnValidate()
@@ -54,5 +49,15 @@ public class Object_Waypoint : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         canBeTriggered = true;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        
+    }
+
+    public void LoadData(GameData data)
+    {
+        
     }
 }

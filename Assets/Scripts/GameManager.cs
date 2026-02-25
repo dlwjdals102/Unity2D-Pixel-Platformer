@@ -2,6 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum RespawnType
+{
+    Enter,
+    Exit,
+    Load,
+    None
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -33,22 +41,22 @@ public class GameManager : MonoBehaviour
         fadeScreen.DoFadeOut();
         yield return fadeScreen.fadeEffectCo;
 
+        // 씬 로드 전 메모리 저장 (파일저장 X)
+        SaveManager.instance.UpdateSceneToMemory();
+
         // 씬 로드 실행
         AsyncOperation op = SceneManager.LoadSceneAsync(sceneName);
         while(!op.isDone) yield return null;
 
         // 씬 로드 완료 후 데이터 주입
-        SaveManager.instance.LoadGame();
-
-        if (respawnType == RespawnType.Enter || respawnType == RespawnType.Exit)
+        if (respawnType == RespawnType.Load)
+            SaveManager.instance.LoadGame();
+        else if (respawnType == RespawnType.Enter || respawnType == RespawnType.Exit)
         {
-            // 도착지점 좌표 찾기
-            Vector3 targetPos = GetWaypointPosition(respawnType);
+            SaveManager.instance.SyncMemoryToScene();
 
             Player player = Player.instance;
-
-            if (player != null)
-                player.Teleport(targetPos);
+            player.Teleport(GetWaypointPosition(respawnType));
         }
 
         // 씬 전환 후 참조를 잃을 가능성이 높음

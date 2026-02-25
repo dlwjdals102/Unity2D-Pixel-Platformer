@@ -6,7 +6,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
 {
     private Slider healthBar;
     private Entity entity;
-    private EntityStats stats;
+    protected EntityStats stats;
     private Entity_VFX entityVfx;
 
     [SerializeField] protected float currentHp;
@@ -75,7 +75,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         entity.EntityDeath();
     }
 
-    private void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         if (healthBar == null)
             return;

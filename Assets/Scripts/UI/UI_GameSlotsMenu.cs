@@ -39,16 +39,14 @@ public class UI_GameSlotsMenu : MonoBehaviour
         {
             // 데이터가 없으면 새 게임 데이터 생성
             SaveManager.instance.NewGame();
-            SaveManager.instance.SaveGame();
             // 새 게임 시작 씬으로 이동
-            GameManager.instance.ChangeScene("Level_0", RespawnType.None);
+            GameManager.instance.ChangeScene("Level_0", RespawnType.Load);
         }
         else
         {
             // 데이터가 있으면 저장된 씬으로 이동
-            // SaveManager에 저장된 lastSceneName을 사용하거나 GameManager의 기본 로직 사용
             string lastScene = SaveManager.instance.GetSavedGameData().lastSceneName;
-            GameManager.instance.ChangeScene(lastScene, RespawnType.None);
+            GameManager.instance.ChangeScene(lastScene, RespawnType.Load);
         }
     }
 

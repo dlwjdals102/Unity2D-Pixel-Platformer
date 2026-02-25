@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
+    private Entity_SFX sfx;
     private Entity_VFX vfx;
     private EntityStats stats;
 
@@ -14,19 +15,30 @@ public class Entity_Combat : MonoBehaviour
     {
         vfx = GetComponent<Entity_VFX>();
         stats = GetComponent<EntityStats>();
+        sfx = GetComponent<Entity_SFX>();
     }
 
     public void PerformAttack()
     {
-        foreach(var target in GetDetectedColliders())
+        bool targetGotHit = false;
+
+        foreach (var target in GetDetectedColliders())
         {
             IDamageable damageable = target.GetComponent<IDamageable>();
 
             if (damageable == null) continue;
+            
+            targetGotHit = damageable.TakeDamage(stats.GetDamage(), transform);
 
-            damageable.TakeDamage(stats.GetDamage(), transform);
-            vfx.CreateOnHitVFX(target.transform);
+            if (targetGotHit)
+            {
+                vfx?.CreateOnHitVFX(target.transform);
+                sfx?.PlayAttackHit();
+            }
         }
+
+        if (!targetGotHit)
+            sfx?.PlayAttackMiss();
     }
 
     private Collider2D[] GetDetectedColliders()
