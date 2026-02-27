@@ -13,6 +13,8 @@ public class Enemy_DeadState : EnemyState
 
         rb.simulated = false;
         stateMachine.SwitchOffStateMachine();
+
+        enemy.DestroyObjectWithDelay();
     }
 
 

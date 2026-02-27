@@ -9,7 +9,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
     protected EntityStats stats;
     private Entity_VFX entityVfx;
 
-    [SerializeField] protected float currentHp;
+    [SerializeField] protected float currentHealth;
     [SerializeField] protected bool isDead;
 
     [Header("On Damage Knockback")]
@@ -28,7 +28,15 @@ public class Entity_Health : MonoBehaviour, IDamageable
         stats = GetComponent<EntityStats>();
         healthBar = GetComponentInChildren<Slider>();
 
-        currentHp = stats.GetMaxHealth();
+        SetupHealth();
+    }
+
+    public void SetupHealth()
+    {
+        if (stats == null)
+            return;
+
+        currentHealth = stats.GetMaxHealth();
         UpdateHealthBar();
     }
 
@@ -55,17 +63,17 @@ public class Entity_Health : MonoBehaviour, IDamageable
     {
         if (isDead) return;
 
-        currentHp = Mathf.Min(currentHp + amount, stats.GetMaxHealth());
+        currentHealth = Mathf.Min(currentHealth + amount, stats.GetMaxHealth());
 
         UpdateHealthBar();
     }
 
     protected void ReduceHealth(float damage)
     {
-        currentHp -= damage;
+        currentHealth -= damage;
         UpdateHealthBar();
 
-        if (currentHp <= 0)
+        if (currentHealth <= 0)
             Die();
     }
 
@@ -80,7 +88,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         if (healthBar == null)
             return;
 
-        healthBar.value = currentHp / stats.GetMaxHealth();
+        healthBar.value = currentHealth / stats.GetMaxHealth();
     }
 
     private Vector2 CalculateKnockback(float damage, Transform damageDealer)

@@ -39,6 +39,11 @@ public class Enemy : Entity
         stateMachine.ChangeState(idleState);
     }
 
+    public void DestroyObjectWithDelay(float dealy = 5)
+    {
+        Destroy(gameObject, dealy);
+    }
+
     public void TryEnterBattleState(Transform player)
     {
         if (stateMachine.currentState == battleState || stateMachine.currentState == attackState)

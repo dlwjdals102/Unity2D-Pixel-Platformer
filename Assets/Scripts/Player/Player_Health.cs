@@ -20,25 +20,19 @@ public class Player_Health : Entity_Health, ISaveable
         player.ui.OpenDeathScreenUI();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-            Die();
-    }
-
     public void LoadData(GameData data)
     {
         if (Mathf.Approximately(data.playerCurrentHealth, 0))
-            currentHp = stats.GetMaxHealth();
+            currentHealth = stats.GetMaxHealth();
         else
-            currentHp = data.playerCurrentHealth;
+            currentHealth = data.playerCurrentHealth;
 
         UpdateHealthBar();
     }
 
     public void SaveData(ref GameData data)
     {
-        data.playerCurrentHealth = currentHp;
+        data.playerCurrentHealth = currentHealth;
     }
 
 }
