@@ -34,7 +34,7 @@ public class UI : MonoBehaviour
         optionsUI.gameObject.SetActive(enable);
 
         StopPlayerControls(enable);
-        Time.timeScale = enable ? 0f : 1f;
+        //Time.timeScale = enable ? 0f : 1f;
     }
 
     public void OpenDeathScreenUI()

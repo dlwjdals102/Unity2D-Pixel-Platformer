@@ -19,6 +19,8 @@ public class UI_GameSlot : MonoBehaviour
 
     public void SetData(GameData data)
     {
+        // 저장한 시간, 이미지, scene 이름정도 넣어주면 베스트
+
         if (data == null)
         {
             text.text = "Empty";
