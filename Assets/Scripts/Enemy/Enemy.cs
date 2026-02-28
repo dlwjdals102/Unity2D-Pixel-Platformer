@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    protected Entity_Combat combat;
+
     public Enemy_IdleState idleState;
     public Enemy_MoveState moveState;
     public Enemy_AttackState attackState;
@@ -26,6 +28,26 @@ public class Enemy : Entity
     [SerializeField] private Transform playerCheck;
     [SerializeField] private float playerCheckDistance = 10;
     public Transform player { get; private set; }
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        combat = GetComponent<Entity_Combat>(); 
+    }
+
+    public void MakeUntargetable(bool canBeTargeted)
+    {
+        if (canBeTargeted)
+            gameObject.layer = LayerMask.NameToLayer("Untargetable");
+        else
+            gameObject.layer = LayerMask.NameToLayer("Enemy");
+    }
+
+    public virtual void SpecialAttack()
+    {
+
+    }
 
     public override void EntityDeath()
     {

@@ -7,6 +7,7 @@ public class Enemy_Slime : Enemy
     [Header("Slime specifics")]
     [SerializeField] private GameObject slimeToCreatePrefab;
     [SerializeField] private int amountOfSlimesToCreate = 2;
+    [SerializeField] private Vector2 respawnVelocity;
 
     protected override void Awake()
     {
@@ -41,7 +42,14 @@ public class Enemy_Slime : Enemy
         {
             GameObject newSlime = Instantiate(slimeToCreatePrefab, transform.position, Quaternion.identity);
             Enemy_Slime slimeScript = newSlime.GetComponent<Enemy_Slime>();
+            slimeScript.ApplyRespawnVelocity();
         }
+    }
+
+    public void ApplyRespawnVelocity()
+    {
+        Vector2 velocity = new Vector2(respawnVelocity.x * Random.Range(-3f, 3f), respawnVelocity.y * Random.Range(1f, 2f));
+        SetVelocity(velocity.x, velocity.y);
     }
 
 }

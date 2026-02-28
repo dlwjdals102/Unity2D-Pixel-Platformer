@@ -1,0 +1,1927 @@
+fileFormatVersion: 2
+guid: 8a52bc964d67c7d46a7acb52b5772c17
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -750047184722822154
+    second: Bringer-of-Death-SpritSheet_0
+  - first:
+      213: 8445469178646879675
+    second: Bringer-of-Death-SpritSheet_1
+  - first:
+      213: -5923306537521942286
+    second: Bringer-of-Death-SpritSheet_2
+  - first:
+      213: 8707107778256294047
+    second: Bringer-of-Death-SpritSheet_3
+  - first:
+      213: -1846612928519130627
+    second: Bringer-of-Death-SpritSheet_4
+  - first:
+      213: 28493216337309425
+    second: Bringer-of-Death-SpritSheet_5
+  - first:
+      213: 8118819912966400158
+    second: Bringer-of-Death-SpritSheet_6
+  - first:
+      213: 8079674775554739003
+    second: Bringer-of-Death-SpritSheet_7
+  - first:
+      213: 6233496440514900867
+    second: Bringer-of-Death-SpritSheet_8
+  - first:
+      213: 6185124051430620655
+    second: Bringer-of-Death-SpritSheet_9
+  - first:
+      213: -6243590176172294242
+    second: Bringer-of-Death-SpritSheet_10
+  - first:
+      213: -187061038009810156
+    second: Bringer-of-Death-SpritSheet_11
+  - first:
+      213: -2137382666133240926
+    second: Bringer-of-Death-SpritSheet_12
+  - first:
+      213: 973881123878733542
+    second: Bringer-of-Death-SpritSheet_13
+  - first:
+      213: -7142606862941313327
+    second: Bringer-of-Death-SpritSheet_14
+  - first:
+      213: 7875671365747817104
+    second: Bringer-of-Death-SpritSheet_15
+  - first:
+      213: -8871867928371661369
+    second: Bringer-of-Death-SpritSheet_16
+  - first:
+      213: 5282158534819968045
+    second: Bringer-of-Death-SpritSheet_17
+  - first:
+      213: -422922510760239427
+    second: Bringer-of-Death-SpritSheet_18
+  - first:
+      213: 6631781949004943560
+    second: Bringer-of-Death-SpritSheet_19
+  - first:
+      213: 8231058446179839085
+    second: Bringer-of-Death-SpritSheet_20
+  - first:
+      213: 751812126289047221
+    second: Bringer-of-Death-SpritSheet_21
+  - first:
+      213: 6430574574124883500
+    second: Bringer-of-Death-SpritSheet_22
+  - first:
+      213: -6766038691376649458
+    second: Bringer-of-Death-SpritSheet_23
+  - first:
+      213: 2483782727947890954
+    second: Bringer-of-Death-SpritSheet_24
+  - first:
+      213: 3687449107416671509
+    second: Bringer-of-Death-SpritSheet_25
+  - first:
+      213: 4072241969498346569
+    second: Bringer-of-Death-SpritSheet_26
+  - first:
+      213: 8385784872082410219
+    second: Bringer-of-Death-SpritSheet_27
+  - first:
+      213: 2090659836945643480
+    second: Bringer-of-Death-SpritSheet_28
+  - first:
+      213: -8645012906986925910
+    second: Bringer-of-Death-SpritSheet_29
+  - first:
+      213: 8914642584386402721
+    second: Bringer-of-Death-SpritSheet_30
+  - first:
+      213: -4964555800879844387
+    second: Bringer-of-Death-SpritSheet_31
+  - first:
+      213: -643843233168925960
+    second: Bringer-of-Death-SpritSheet_32
+  - first:
+      213: -1554090680192844270
+    second: Bringer-of-Death-SpritSheet_33
+  - first:
+      213: 1900342803882551889
+    second: Bringer-of-Death-SpritSheet_34
+  - first:
+      213: -6959215256267499731
+    second: Bringer-of-Death-SpritSheet_35
+  - first:
+      213: -8721093536611414691
+    second: Bringer-of-Death-SpritSheet_36
+  - first:
+      213: -4818586564699129774
+    second: Bringer-of-Death-SpritSheet_37
+  - first:
+      213: -2960163153839071603
+    second: Bringer-of-Death-SpritSheet_38
+  - first:
+      213: -1378873467200105373
+    second: Bringer-of-Death-SpritSheet_39
+  - first:
+      213: -6237223263896097850
+    second: Bringer-of-Death-SpritSheet_40
+  - first:
+      213: -6342980997288685656
+    second: Bringer-of-Death-SpritSheet_41
+  - first:
+      213: 1887337606458979207
+    second: Bringer-of-Death-SpritSheet_42
+  - first:
+      213: 2778454290109986065
+    second: Bringer-of-Death-SpritSheet_43
+  - first:
+      213: -6416028094590494610
+    second: Bringer-of-Death-SpritSheet_44
+  - first:
+      213: 6824449332584486427
+    second: Bringer-of-Death-SpritSheet_45
+  - first:
+      213: 8403998346646135688
+    second: Bringer-of-Death-SpritSheet_46
+  - first:
+      213: 3879292089760221355
+    second: Bringer-of-Death-SpritSheet_47
+  - first:
+      213: 29702762353113097
+    second: Bringer-of-Death-SpritSheet_48
+  - first:
+      213: 8687428498307349624
+    second: Bringer-of-Death-SpritSheet_49
+  - first:
+      213: -5379403063917420916
+    second: Bringer-of-Death-SpritSheet_50
+  - first:
+      213: -1332470889934944754
+    second: Bringer-of-Death-SpritSheet_51
+  - first:
+      213: 6565450280992480206
+    second: Bringer-of-Death-SpritSheet_52
+  - first:
+      213: -3351220719838747524
+    second: Bringer-of-Death-SpritSheet_53
+  - first:
+      213: -953707883773386096
+    second: Bringer-of-Death-SpritSheet_54
+  - first:
+      213: 7592883989416276412
+    second: Bringer-of-Death-SpritSheet_55
+  - first:
+      213: 8521500246072281666
+    second: Bringer-of-Death-SpritSheet_56
+  - first:
+      213: -4221278012398908484
+    second: Bringer-of-Death-SpritSheet_57
+  - first:
+      213: 6754218284649242354
+    second: Bringer-of-Death-SpritSheet_58
+  - first:
+      213: -8457060507731139865
+    second: Bringer-of-Death-SpritSheet_59
+  - first:
+      213: 6332021275310799178
+    second: Bringer-of-Death-SpritSheet_60
+  - first:
+      213: 3976960032240018065
+    second: Bringer-of-Death-SpritSheet_61
+  - first:
+      213: 7215576535354308736
+    second: Bringer-of-Death-SpritSheet_62
+  - first:
+      213: -216337917939532555
+    second: Bringer-of-Death-SpritSheet_63
+  - first:
+      213: -1868120325543435884
+    second: Bringer-of-Death-SpritSheet_64
+  - first:
+      213: 3660635505352458090
+    second: Bringer-of-Death-SpritSheet_65
+  - first:
+      213: -1504879836324737053
+    second: Bringer-of-Death-SpritSheet_66
+  - first:
+      213: -6167708491202129637
+    second: Bringer-of-Death-SpritSheet_67
+  - first:
+      213: -5574837793213875895
+    second: Bringer-of-Death-SpritSheet_68
+  - first:
+      213: -6973164170239365443
+    second: Bringer-of-Death-SpritSheet_69
+  - first:
+      213: 5268984078305060529
+    second: Bringer-of-Death-SpritSheet_70
+  - first:
+      213: -4756796676063924051
+    second: Bringer-of-Death-SpritSheet_71
+  - first:
+      213: -6003202694090023875
+    second: Bringer-of-Death-SpritSheet_72
+  - first:
+      213: -3242667579502989461
+    second: Bringer-of-Death-SpritSheet_73
+  - first:
+      213: -3507545047721005131
+    second: Bringer-of-Death-SpritSheet_74
+  - first:
+      213: 4179657434126779450
+    second: Bringer-of-Death-SpritSheet_75
+  - first:
+      213: -4584646495297105994
+    second: Bringer-of-Death-SpritSheet_76
+  - first:
+      213: 2340411753182567233
+    second: Bringer-of-Death-SpritSheet_77
+  - first:
+      213: 6142376479927427581
+    second: Bringer-of-Death-SpritSheet_78
+  - first:
+      213: 4377546807506432765
+    second: Bringer-of-Death-SpritSheet_79
+  - first:
+      213: 2054057268913083600
+    second: Bringer-of-Death-SpritSheet_80
+  - first:
+      213: 5267712945784507343
+    second: Bringer-of-Death-SpritSheet_81
+  - first:
+      213: 3114276937657238421
+    second: Bringer-of-Death-SpritSheet_82
+  - first:
+      213: -5247348911507656987
+    second: Bringer-of-Death-SpritSheet_83
+  - first:
+      213: 6503514103266941385
+    second: Bringer-of-Death-SpritSheet_84
+  - first:
+      213: 5384520045850947666
+    second: Bringer-of-Death-SpritSheet_85
+  - first:
+      213: -7202626136720815718
+    second: Bringer-of-Death-SpritSheet_86
+  - first:
+      213: 1828307515674810665
+    second: Bringer-of-Death-SpritSheet_87
+  - first:
+      213: 3673236696602376170
+    second: Bringer-of-Death-SpritSheet_88
+  - first:
+      213: -7503729718484205035
+    second: Bringer-of-Death-SpritSheet_89
+  - first:
+      213: 393222857500541420
+    second: Bringer-of-Death-SpritSheet_90
+  - first:
+      213: 4343592893084976045
+    second: Bringer-of-Death-SpritSheet_91
+  - first:
+      213: -8157738268654294375
+    second: Bringer-of-Death-SpritSheet_92
+  - first:
+      213: -6477363709567818619
+    second: Bringer-of-Death-SpritSheet_93
+  - first:
+      213: -4458930917063361075
+    second: Bringer-of-Death-SpritSheet_94
+  - first:
+      213: 4062003485679954267
+    second: Bringer-of-Death-SpritSheet_95
+  - first:
+      213: 1206823848250521534
+    second: Bringer-of-Death-SpritSheet_96
+  - first:
+      213: -6803309475872195314
+    second: Bringer-of-Death-SpritSheet_97
+  - first:
+      213: -5090540181421502748
+    second: Bringer-of-Death-SpritSheet_98
+  - first:
+      213: 6902899454324343817
+    second: Bringer-of-Death-SpritSheet_99
+  - first:
+      213: 946013011605069419
+    second: Bringer-of-Death-SpritSheet_100
+  - first:
+      213: -4959259612182860334
+    second: Bringer-of-Death-SpritSheet_101
+  - first:
+      213: 5768248114369273202
+    second: Bringer-of-Death-SpritSheet_102
+  - first:
+      213: -4998798509716206269
+    second: Bringer-of-Death-SpritSheet_103
+  - first:
+      213: -434415148876518964
+    second: Bringer-of-Death-SpritSheet_104
+  - first:
+      213: -8575019474698069270
+    second: Bringer-of-Death-SpritSheet_105
+  - first:
+      213: -8487232043859119557
+    second: Bringer-of-Death-SpritSheet_106
+  - first:
+      213: 6101677501033488297
+    second: Bringer-of-Death-SpritSheet_107
+  - first:
+      213: -3064136009206308716
+    second: Bringer-of-Death-SpritSheet_108
+  - first:
+      213: 1065581595387641193
+    second: Bringer-of-Death-SpritSheet_109
+  - first:
+      213: 6108343427805502475
+    second: Bringer-of-Death-SpritSheet_110
+  - first:
+      213: 4244574736091753856
+    second: Bringer-of-Death-SpritSheet_111
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy Reaper_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 651
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51fe6b84ff16e640b17711b2cfd123a
+      internalID: -1028036816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 651
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 883edf0d79e3c4a4480ea891a3352b10
+      internalID: 509319345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 651
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a81837e31bb18a4685fc434908043a7
+      internalID: 753295649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_3
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 651
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b90bab14bdfad3c4a846e9f55d5799f2
+      internalID: 1643084531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_4
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 651
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed0dcd063c5be343af8dd5c086d11b1
+      internalID: 1506026023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_5
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 651
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c1e2087b48c2949ab39cfa5effecc6
+      internalID: 1302969559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_6
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 651
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5d902696f7831e47b4c7b64dc60e97b
+      internalID: 1553100471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_7
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 651
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a526799d8c04694f8a83f3d530755ce
+      internalID: -1504090559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 558
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ddf0480c123e9b46b06692601fa5562
+      internalID: 30875759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_9
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 558
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16abc179a4038cd4899178fef509d922
+      internalID: -1586161320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_10
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 558
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb0e1a17fa76f6a449b7ec3650333cd1
+      internalID: 844459549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_11
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 558
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 904920db438f5ee44b03518845869a6d
+      internalID: -1527014799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_12
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 558
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02931724b2ea3964b9693844effc81ce
+      internalID: -1889645574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_13
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 558
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53142d426419fa34ea8b74d1afa09aa3
+      internalID: -1204970085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_14
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 558
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb857debd86e7bb4a8dfa29740fb25f1
+      internalID: -1564439707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_15
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 558
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc35c4ef86044114daabc27025712bde
+      internalID: -53198478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 465
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 288cabcadcfd2b04188a369842ffee5f
+      internalID: 2038986566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_17
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 465
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d645db45c69ccb4a9efaee5540a8ff5
+      internalID: 1188345610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_18
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 465
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 377039abd788d674285a38f5651d82c7
+      internalID: 530784886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_19
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 465
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acca16a5ed6da4d43bd27d28e28d7e3c
+      internalID: -354878339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_20
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 465
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f1dbc86f052ecb4da3d753008b3497c
+      internalID: -1111365680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_21
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 465
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fcf8597d1345454fa9c12444a4fc9bf
+      internalID: 1437894759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_22
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 465
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f81b4097057bc14ab8ea296e8bbcc81
+      internalID: -76685914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_23
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 465
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e442389b7619ae47a0ad0ce4bf15f76
+      internalID: 1060482057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 372
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8230073aaab63e4a9ebf04664aadb54
+      internalID: -1814068974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_25
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 372
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07b5a90f166d20478e974191d3619d8
+      internalID: -1408299650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_26
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 372
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45b82c19e617cf1428d2ed1587618b1b
+      internalID: 2036105816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_27
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 372
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54de97ae44c02844c979d34bd7d85d3d
+      internalID: 494270980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_28
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 372
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c22598e1cdafe43a6562aafcb50829
+      internalID: 260746396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_29
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 372
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a974d9c584cface448f346a7ee3d5ea7
+      internalID: 1868576432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_30
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 372
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f5436c5130a8374882a97075347641b
+      internalID: 890389492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_31
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 372
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e268e975887ab14fac93effcac35a8b
+      internalID: 544731290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 279
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9401054628d964fa7d0b546257a7c6
+      internalID: -1704975125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_33
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 279
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e52f425e930f4c84f9b3b1f32e2907a8
+      internalID: -1138857954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_34
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 279
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e673d9b1c2d9f45b8d54153877f5dd
+      internalID: -244225833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_35
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 279
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2952af61457188a46b15b98e6829b193
+      internalID: -1229045034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_36
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 279
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c40937a26f1d254da1c73e18c1eed18
+      internalID: 318276294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_37
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 279
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc410ad36871f246836dbcca293dd63
+      internalID: -1054578966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_38
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 279
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0c034840cafb924c8d5fe17f41f6a05
+      internalID: 153086860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_39
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 279
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3f64e31011e26a4191138e075d914eb
+      internalID: -1135779826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 186
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cca22e9098877541b7c7f24308278eb
+      internalID: -2099144085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_41
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 186
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3345ee8001725f41bce9b48de3b8ecf
+      internalID: -362976509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_42
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 186
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e467271a5259d44a7e7d5f4e92c785
+      internalID: 730809135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_43
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 186
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4699e5e8a080512449eeee46fc55162e
+      internalID: -641399259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_44
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 186
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 372d09e18b6b8ac49b7ee0521f5a56be
+      internalID: -1973151069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_45
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 186
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d2b26ea423df248bd3e198cd3a5824
+      internalID: -176654535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_46
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 186
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 474aaa3e5eb641940bbf7eb51f23e46c
+      internalID: 860692072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_47
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 186
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.75, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b519b6c0f5eb14a924aee0418e1cdd
+      internalID: 290964916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 93
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0cdebb50742e874aa2faefc8e3c3b11
+      internalID: 1184116150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_49
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 93
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e2cc009dd3b1841a11f77ec15e1c08
+      internalID: 603492833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_50
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 93
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 906251efcbcb7174b823d04543272ddc
+      internalID: 612417170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_51
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 93
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc670d2b63d373148ac3e17c1d557b9c
+      internalID: -1426872172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_52
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 94
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f1a7e86215a2247a52aa2b5afb200f
+      internalID: -1857372309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_53
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 93
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b297ba2c4a180bf40a93523d70a79f43
+      internalID: 1264723812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_54
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 93
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c85754696f40684d879b9020a485c65
+      internalID: 1083510075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_55
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 93
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8544315fa7bf44b95a167af9d06ac2
+      internalID: 1801425382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d855fc41f0bcd654481823834cebd2de
+      internalID: -809831386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_57
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66215b88e4bfc094fa60b943babb3455
+      internalID: -1245202392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_58
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7afd705f5140b54ebd202f1f3eb696c
+      internalID: -1406582134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_59
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 991bfef1625c02a40867188291c9fed5
+      internalID: 335384770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_60
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a286caa488f4a574c831630d117b1950
+      internalID: -1677778361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_61
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826a676b52dfe3c47a717a7b8f5d9c13
+      internalID: -1806938514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_62
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.47, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 775b5b7e51123454c8c6a696ee88d259
+      internalID: -1038869524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Reaper_63
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 0
+        width: 140
+        height: 93
+      alignment: 9
+      pivot: {x: 0.477, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113e84ad7c7b4e84da4f36865e6e6f97
+      internalID: -662816234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f01864f21bbb54c468794d1fe38c5815
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":140.0,"y":93.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.75,"y":0.3499999940395355},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Enemy Reaper_0: -1028036816
+      Enemy Reaper_1: 509319345
+      Enemy Reaper_10: 844459549
+      Enemy Reaper_11: -1527014799
+      Enemy Reaper_12: -1889645574
+      Enemy Reaper_13: -1204970085
+      Enemy Reaper_14: -1564439707
+      Enemy Reaper_15: -53198478
+      Enemy Reaper_16: 2038986566
+      Enemy Reaper_17: 1188345610
+      Enemy Reaper_18: 530784886
+      Enemy Reaper_19: -354878339
+      Enemy Reaper_2: 753295649
+      Enemy Reaper_20: -1111365680
+      Enemy Reaper_21: 1437894759
+      Enemy Reaper_22: -76685914
+      Enemy Reaper_23: 1060482057
+      Enemy Reaper_24: -1814068974
+      Enemy Reaper_25: -1408299650
+      Enemy Reaper_26: 2036105816
+      Enemy Reaper_27: 494270980
+      Enemy Reaper_28: 260746396
+      Enemy Reaper_29: 1868576432
+      Enemy Reaper_3: 1643084531
+      Enemy Reaper_30: 890389492
+      Enemy Reaper_31: 544731290
+      Enemy Reaper_32: -1704975125
+      Enemy Reaper_33: -1138857954
+      Enemy Reaper_34: -244225833
+      Enemy Reaper_35: -1229045034
+      Enemy Reaper_36: 318276294
+      Enemy Reaper_37: -1054578966
+      Enemy Reaper_38: 153086860
+      Enemy Reaper_39: -1135779826
+      Enemy Reaper_4: 1506026023
+      Enemy Reaper_40: -2099144085
+      Enemy Reaper_41: -362976509
+      Enemy Reaper_42: 730809135
+      Enemy Reaper_43: -641399259
+      Enemy Reaper_44: -1973151069
+      Enemy Reaper_45: -176654535
+      Enemy Reaper_46: 860692072
+      Enemy Reaper_47: 290964916
+      Enemy Reaper_48: 1184116150
+      Enemy Reaper_49: 603492833
+      Enemy Reaper_5: 1302969559
+      Enemy Reaper_50: 612417170
+      Enemy Reaper_51: -1426872172
+      Enemy Reaper_52: -1857372309
+      Enemy Reaper_53: 1264723812
+      Enemy Reaper_54: 1083510075
+      Enemy Reaper_55: 1801425382
+      Enemy Reaper_56: -809831386
+      Enemy Reaper_57: -1245202392
+      Enemy Reaper_58: -1406582134
+      Enemy Reaper_59: 335384770
+      Enemy Reaper_6: 1553100471
+      Enemy Reaper_60: -1677778361
+      Enemy Reaper_61: -1806938514
+      Enemy Reaper_62: -1038869524
+      Enemy Reaper_63: -662816234
+      Enemy Reaper_7: -1504090559
+      Enemy Reaper_8: 30875759
+      Enemy Reaper_9: -1586161320
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -39,30 +39,33 @@ public class Enemy_BattleState : EnemyState
         if (WithinAttackRange() && enemy.PlayerDetected())
             stateMachine.ChangeState(enemy.attackState);
         else
-            enemy.SetVelocity(enemy.battleMoveSpeed * DirectionToPlayer(), rb.linearVelocity.y);
+        {
+            float xVelocity = enemy.groundDetected ? enemy.battleMoveSpeed : 0.0001f;
+            enemy.SetVelocity(xVelocity * DirectionToPlayer(), rb.linearVelocity.y);
+        }
     }
 
-    private void UpdateBattleTimer()
+    protected void UpdateBattleTimer()
     {
         lastTimeWasInBattle = Time.time;
     }
 
-    private bool BattleTimeIsOver()
+    protected bool BattleTimeIsOver()
     {
         return Time.time > lastTimeWasInBattle + enemy.battleTimeDuration;
     }
 
-    private bool WithinAttackRange()
+    protected bool WithinAttackRange()
     {
         return DistanceToPlayer() < enemy.attackDistance;
     }
 
-    private bool ShouldRetreat()
+    protected bool ShouldRetreat()
     {
         return DistanceToPlayer() < enemy.minRetreatDistance;
     }
 
-    private float DistanceToPlayer()
+    protected float DistanceToPlayer()
     {
         if (player == null)
             return float.MaxValue;
@@ -70,7 +73,7 @@ public class Enemy_BattleState : EnemyState
         return Mathf.Abs(player.position.x - enemy.transform.position.x);
     }
 
-    private int DirectionToPlayer()
+    protected int DirectionToPlayer()
     {
         if (player == null)
             return 0;

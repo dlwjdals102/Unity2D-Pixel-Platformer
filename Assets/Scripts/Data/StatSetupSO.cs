@@ -8,6 +8,7 @@ public class StatSetupSO : ScriptableObject
 
     [Header("Offense")]
     public float damage = 10;
+    public float magicDamage = 12;
     public float attackSpeed = 1;
 
     [Header("Defense")]

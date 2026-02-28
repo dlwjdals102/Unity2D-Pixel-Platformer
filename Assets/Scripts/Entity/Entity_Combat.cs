@@ -41,6 +41,27 @@ public class Entity_Combat : MonoBehaviour
             sfx?.PlayAttackMiss();
     }
 
+    public void PerformAttackOnTarget(Transform target)
+    {
+        bool targetGotHit = false;
+
+        IDamageable damageable = target.GetComponent<IDamageable>();
+
+        if (damageable == null)
+            return; // skip target, go to next target
+
+        targetGotHit = damageable.TakeDamage(stats.GetDamage(), transform);
+
+        if (targetGotHit)
+        {
+            vfx?.CreateOnHitVFX(target.transform);
+            sfx?.PlayAttackHit();
+        }
+
+        if (!targetGotHit)
+            sfx?.PlayAttackMiss();
+    }
+
     private Collider2D[] GetDetectedColliders()
     {
         return Physics2D.OverlapCircleAll(targetCheck.position, targetCheckRadius, whatIsTarget);
