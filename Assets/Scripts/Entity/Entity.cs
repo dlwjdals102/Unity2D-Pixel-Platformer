@@ -10,6 +10,8 @@ public class Entity : MonoBehaviour
     public Collider2D col {  get; private set; }
     public EntityStats stats { get; private set; }
     public Entity_SFX sfx { get; private set; }
+    public Entity_Health health { get; private set; }
+
     protected StateMachine stateMachine;
 
     private bool facingRight = true;
@@ -36,6 +38,8 @@ public class Entity : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+
+        health = GetComponent<Entity_Health>();
         stats = GetComponent<EntityStats>();
         sfx = GetComponent<Entity_SFX>();
 

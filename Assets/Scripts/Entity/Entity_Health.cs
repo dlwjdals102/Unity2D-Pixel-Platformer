@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Entity_Health : MonoBehaviour, IDamageable
 {
+    public event Action OnHealthUpdate;
+
     private Slider healthBar;
     private Entity entity;
     protected EntityStats stats;
@@ -37,6 +39,8 @@ public class Entity_Health : MonoBehaviour, IDamageable
             return;
 
         currentHealth = stats.GetMaxHealth();
+        OnHealthUpdate += UpdateHealthBar;
+
         UpdateHealthBar();
     }
 
@@ -51,9 +55,6 @@ public class Entity_Health : MonoBehaviour, IDamageable
             entity.ReciveKnockback(knockback, duration);
         }
 
-        if (entityVfx != null)
-            entityVfx.PlayOnDamageVfx();
-
         ReduceHealth(damage);
 
         return true;
@@ -64,14 +65,15 @@ public class Entity_Health : MonoBehaviour, IDamageable
         if (isDead) return;
 
         currentHealth = Mathf.Min(currentHealth + amount, stats.GetMaxHealth());
-
-        UpdateHealthBar();
+        OnHealthUpdate?.Invoke();
     }
 
     protected void ReduceHealth(float damage)
     {
         currentHealth -= damage;
-        UpdateHealthBar();
+
+        entityVfx?.PlayOnDamageVfx();
+        OnHealthUpdate?.Invoke();
 
         if (currentHealth <= 0)
             Die();
@@ -89,6 +91,17 @@ public class Entity_Health : MonoBehaviour, IDamageable
             return;
 
         healthBar.value = currentHealth / stats.GetMaxHealth();
+    }
+
+    public float GetHealthPercent()
+    {
+        return currentHealth / stats.GetMaxHealth();
+    }
+
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
     }
 
     private Vector2 CalculateKnockback(float damage, Transform damageDealer)

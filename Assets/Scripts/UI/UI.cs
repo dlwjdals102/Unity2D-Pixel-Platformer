@@ -7,16 +7,18 @@ public class UI : MonoBehaviour
     private PlayerInputSet input;
 
     public UI_Options optionsUI { get; private set; }
-    public UI_FadeScreen fadeScreen { get; private set; }
+    public UI_InGame inGameUI { get; private set; }
     public UI_DeathScreen deathScreen { get; private set; }
+    public UI_FadeScreen fadeScreen { get; private set; }
 
     private void Awake()
     {
         instance = this;
 
         optionsUI = GetComponentInChildren<UI_Options>(true);
-        fadeScreen = GetComponentInChildren<UI_FadeScreen>(true);
+        inGameUI = GetComponentInChildren<UI_InGame>(true);
         deathScreen = GetComponentInChildren<UI_DeathScreen>(true);
+        fadeScreen = GetComponentInChildren<UI_FadeScreen>(true);
     }
 
     public void SetupControlsUI(PlayerInputSet inputSet)
