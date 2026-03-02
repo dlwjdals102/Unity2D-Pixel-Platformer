@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 
 
-public class Object_Waypoint : MonoBehaviour, ISaveable
+public class Object_Waypoint : MonoBehaviour
 {
     [SerializeField] private string transferToScene;
     [Space]
@@ -49,15 +49,5 @@ public class Object_Waypoint : MonoBehaviour, ISaveable
     private void OnTriggerExit2D(Collider2D collision)
     {
         canBeTriggered = true;
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        
-    }
-
-    public void LoadData(GameData data)
-    {
-        
     }
 }

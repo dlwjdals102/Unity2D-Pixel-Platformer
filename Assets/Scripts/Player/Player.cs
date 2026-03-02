@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Player : Entity, ISaveable
@@ -90,6 +91,8 @@ public class Player : Entity, ISaveable
 
         input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
+
+        input.Player.Interact.performed += ctx => TryInteract();
     }
 
     private void OnDisable()
@@ -114,6 +117,31 @@ public class Player : Entity, ISaveable
     {
         yield return new WaitForEndOfFrame();
         stateMachine.ChangeState(basicAttackState);
+    }
+
+    private void TryInteract()
+    {
+        Transform closest = null;
+        float closestDistance = Mathf.Infinity;
+        Collider2D[] objectsAround = Physics2D.OverlapCircleAll(transform.position, 1f);
+
+        foreach(var target in objectsAround)
+        {
+            IInteractable interactable = target.GetComponent<IInteractable>();
+            if (interactable == null) continue;
+
+            float distance = Vector2.Distance(transform.position, target.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closest = target.transform;
+            }
+        }
+
+        if (closest == null)
+            return;
+
+        closest.GetComponent<IInteractable>().Interact();
     }
 
     public void SaveData(ref GameData data)
