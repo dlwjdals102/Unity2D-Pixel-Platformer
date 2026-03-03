@@ -183,6 +183,58 @@ public virtual bool TakeDamage(float damage, Transform damageDealer)
 <summary>코드</summary>
 <div markdown="1">
 
+## Entity Stats
+```c#
+public class EntityStats : MonoBehaviour
+{
+    public StatSetupSO defaultStatSetup;
+
+    public Stat maxHealth;
+    public Stat damage;
+    public Stat armor;
+    public Stat attackSpeed;
+
+    // 필요한거 있으면 추가
+
+    public float GetMaxHealth()
+    {
+        return maxHealth.GetValue();
+    }
+
+    public float GetDamage()
+    {
+        return damage.GetValue();
+    }
+
+    public float GetArmor()
+    {
+        return armor.GetValue();
+    }
+
+    public float GetAttackSpeed()
+    {
+        return attackSpeed.GetValue();
+    }
+
+
+    [ContextMenu("Update Default Stat Setup")]
+    public void ApplyDefaultStatSetup()
+    {
+        if (defaultStatSetup == null)
+        {
+            Debug.Log("No default stat setup assigned");
+            return;
+        }
+
+        maxHealth.SetValue(defaultStatSetup.maxHealth);
+        damage.SetValue(defaultStatSetup.damage);
+        armor.SetValue(defaultStatSetup.armor);
+        attackSpeed.SetValue(defaultStatSetup.attackSpeed);
+    }
+}
+
+```
+
 ## Stat
 ```c#
 [System.Serializable]
@@ -238,58 +290,6 @@ public class StatModifier
         this.source = source;
     }
 }
-
-```
-## Entity Stats
-```c#
-public class EntityStats : MonoBehaviour
-{
-    public StatSetupSO defaultStatSetup;
-
-    public Stat maxHealth;
-    public Stat damage;
-    public Stat armor;
-    public Stat attackSpeed;
-
-    // 필요한거 있으면 추가
-
-    public float GetMaxHealth()
-    {
-        return maxHealth.GetValue();
-    }
-
-    public float GetDamage()
-    {
-        return damage.GetValue();
-    }
-
-    public float GetArmor()
-    {
-        return armor.GetValue();
-    }
-
-    public float GetAttackSpeed()
-    {
-        return attackSpeed.GetValue();
-    }
-
-
-    [ContextMenu("Update Default Stat Setup")]
-    public void ApplyDefaultStatSetup()
-    {
-        if (defaultStatSetup == null)
-        {
-            Debug.Log("No default stat setup assigned");
-            return;
-        }
-
-        maxHealth.SetValue(defaultStatSetup.maxHealth);
-        damage.SetValue(defaultStatSetup.damage);
-        armor.SetValue(defaultStatSetup.armor);
-        attackSpeed.SetValue(defaultStatSetup.attackSpeed);
-    }
-}
-
 
 ```
 
@@ -444,6 +444,7 @@ public class FileDataHandler
         return loadData;
     }
 
+    // 저장된 파일이 있는지 검색
     public Dictionary<string, GameData> LoadAllProfiles()
     {
         Dictionary<string, GameData> profileDictionary = new Dictionary<string, GameData>();
@@ -466,6 +467,7 @@ public class FileDataHandler
         return profileDictionary;
     }
 
+    // 암호화 & 복호화
     private string EncryptDecrypt(string data)
     {
         string modifiedData = "";
@@ -478,114 +480,63 @@ public class FileDataHandler
 }
 ```
 
-## Save Manager
+## Save / Load
 ```c#
-public class SaveManager : MonoBehaviour
+public void NewGame()
 {
-    public static SaveManager instance;
+    gameData = new GameData();
+    dataHandler.SavaData(gameData, selectedProfileId);
+}
 
-    [SerializeField] private string fileName = "pfg.json";
-    [SerializeField] private bool useEncryption = false;
+public void LoadGame()
+{
+    gameData = dataHandler.LoadData(selectedProfileId);
 
-    private GameData gameData;
-    private FileDataHandler dataHandler;
-
-    [SerializeField] private string selectedProfileId;
-
-
-    private void Awake()
+    if (gameData == null)
     {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
+        //Debug.Log("No data was found. A New Game needs to be started before data can be loaded.");
+        return;
     }
 
-    public void ChangeSelectedProfileId(string newProfileId)
+    SyncMemoryToScene();
+}
+
+public void SaveGame()
+{
+    if (gameData == null)
     {
-        selectedProfileId = newProfileId;
-        gameData = dataHandler.LoadData(selectedProfileId);
+        //Debug.Log("No data was found. A New Game needs to be started before data can be saved.");
+        return;
     }
 
-    public void NewGame()
-    {
-        gameData = new GameData();
-        dataHandler.SavaData(gameData, selectedProfileId);
-    }
+    UpdateSceneToMemory();
+    dataHandler.SavaData(gameData, selectedProfileId);
+}
 
-    public void LoadGame()
-    {
-        gameData = dataHandler.LoadData(selectedProfileId);
+// 메모리 데이터를 씬의 객체들에게 주입 (씬 이동 시 사용)
+public void SyncMemoryToScene()
+{
+    foreach (var saveable in FindAllSaveables())
+        saveable.LoadData(gameData);
+}
 
-        if (gameData == null)
-        {
-            Debug.Log("No data was found. A New Game needs to be started before data can be loaded.");
-            return;
-        }
+// 씬의 객체 데이터를 메모리에만 업데이트 (씬 이동 직전 사용)
+public void UpdateSceneToMemory()
+{
+    if (gameData == null)
+        return;
 
-        SyncMemoryToScene();
-    }
+    foreach (var saveable in FindAllSaveables())
+        saveable.SaveData(ref gameData);
+}
 
-    public void SaveGame()
-    {
-        if (gameData == null)
-        {
-            Debug.Log("No data was found. A New Game needs to be started before data can be saved.");
-            return;
-        }
-
-        UpdateSceneToMemory();
-        dataHandler.SavaData(gameData, selectedProfileId);
-    }
-
-    // 메모리 데이터를 씬의 객체들에게 주입 (씬 이동 시 사용)
-    public void SyncMemoryToScene()
-    {
-        foreach (var saveable in FindAllSaveables())
-        {
-            saveable.LoadData(gameData);
-        }
-    }
-
-    // 씬의 객체 데이터를 메모리에만 업데이트 (씬 이동 직전 사용)
-    public void UpdateSceneToMemory()
-    {
-        if (gameData == null)
-            return;
-
-        foreach (var saveable in FindAllSaveables())
-        {
-            saveable.SaveData(ref gameData);
-        }
-    }
-
-    private List<ISaveable> FindAllSaveables()
-    {
-        return
-            FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None)
-            .OfType<ISaveable>()
-            .ToList();
-    }
-    public bool HasGameData()
-    {
-        return gameData != null;
-    }
-
-    public Dictionary<string, GameData> GetAllProfilesGameData()
-    {
-        return dataHandler.LoadAllProfiles();
-    }
-
-    internal GameData GetSavedGameData()
-    {
-        return gameData;
-    }
+// ISaveable 요소 검색
+private List<ISaveable> FindAllSaveables()
+{
+    return
+        FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+        .OfType<ISaveable>()
+        .ToList();
 }
 ```
 
@@ -664,160 +615,107 @@ private UI_FadeScreen FindFadeScreenUI()
 <summary>코드</summary>
 <div markdown="1">
 
-## Audio Manager
+## SFX
 ```c#
-public class AudioManager : MonoBehaviour
+public void PlaySFX(string soundName, AudioSource sfxSource, float minDistanceToHearSound = 5)
 {
-    public static AudioManager instance;
+    if (player == null)
+        player = Player.instance.transform;
 
-    [SerializeField] private AudioDatabaseSO audioDB;
-    [SerializeField] private AudioSource bgmSource;
-    [SerializeField] private AudioSource sfxSource;
-    [Space]
+    AudioClipData data = audioDB.Get(soundName);
+    if (data == null)
+        return;
 
-    private Transform player;
+    AudioClip clip = data.GetRandomClip();
+    if (clip == null)
+        return;
 
-    private AudioClip lastMusicPlayed;
-    private string currentBgmGroupName;
-    private Coroutine currentBgmCo;
-    [SerializeField] private bool bgmShouldPlay;
+    float maxVolume = data.maxVolume;
+    float distance = Vector2.Distance(sfxSource.transform.position, player.position);
+    float t = Mathf.Clamp01(1 - (distance / minDistanceToHearSound));
 
+    sfxSource.pitch = Random.Range(.95f, 1.1f);
+    sfxSource.volume = Mathf.Lerp(0, maxVolume, t * t);
+    sfxSource.PlayOneShot(clip);
+}
 
-    private void Awake()
+```
+
+## BGM
+```c#
+public void StartBGM(string musicGroup)
+{
+    bgmShouldPlay = true;
+
+    if (musicGroup == currentBgmGroupName)
+        return;
+
+    NextBGM(musicGroup);
+}
+
+public void NextBGM(string musicGroup)
+{
+    bgmShouldPlay = true;
+    currentBgmGroupName = musicGroup;
+
+    if (currentBgmCo != null)
+        StopCoroutine(currentBgmCo);
+
+    currentBgmCo = StartCoroutine(SwitchMusicCo(musicGroup));
+}
+
+public void StopBGM()
+{
+    bgmShouldPlay = false;
+
+    StartCoroutine(FadeVolumeCo(bgmSource, 0, 1f));
+
+    if (currentBgmCo != null)
+        StopCoroutine(currentBgmCo);
+}
+
+private IEnumerator SwitchMusicCo(string musicGroup)
+{
+    AudioClipData data = audioDB.Get(musicGroup);
+    if (data == null || data.clips.Count == 0)
     {
-        if (instance != null && instance != this)
-        {
-            Destroy(instance);
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+        //Debug.Log("No audio found for group - " + musicGroup);
+        yield break;
     }
 
-    private void Update()
-    {
-        if (!bgmSource.isPlaying && bgmShouldPlay)
-        {
-            if (!string.IsNullOrEmpty(currentBgmGroupName))
-                NextBGM(currentBgmGroupName);
-        }
+    AudioClip nextMusic = data.GetRandomClip();
 
-        if (bgmSource.isPlaying && !bgmShouldPlay)
-            StopBGM();
+    if (data.clips.Count > 1)
+    {
+        while (nextMusic == lastMusicPlayed)
+            nextMusic = data.GetRandomClip();
     }
 
-    public void StartBGM(string musicGroup)
+    if (bgmSource.isPlaying)
+        yield return FadeVolumeCo(bgmSource, 0, 1f);
+
+    lastMusicPlayed = nextMusic;
+    bgmSource.clip = nextMusic;
+    bgmSource.volume = 0;
+    bgmSource.Play();
+
+    StartCoroutine(FadeVolumeCo(bgmSource, data.maxVolume, 1f));
+}
+
+private IEnumerator FadeVolumeCo(AudioSource source, float targetVolume, float duration)
+{
+    float time = 0;
+    float startVolume = source.volume;
+
+    while (time < duration)
     {
-        bgmShouldPlay = true;
+        time += Time.deltaTime;
 
-        if (musicGroup == currentBgmGroupName)
-            return;
-
-        NextBGM(musicGroup);
+        source.volume = Mathf.Lerp(startVolume, targetVolume, time / duration);
+        yield return null;
     }
 
-    public void NextBGM(string musicGroup)
-    {
-        bgmShouldPlay = true;
-        currentBgmGroupName = musicGroup;
-
-        if (currentBgmCo != null)
-            StopCoroutine(currentBgmCo);
-
-        currentBgmCo = StartCoroutine(SwitchMusicCo(musicGroup));
-    }
-
-    public void StopBGM()
-    {
-        bgmShouldPlay = false;
-
-        StartCoroutine(FadeVolumeCo(bgmSource, 0, 1f));
-
-        if (currentBgmCo != null)
-            StopCoroutine(currentBgmCo);
-    }
-
-    private IEnumerator SwitchMusicCo(string musicGroup)
-    {
-        AudioClipData data = audioDB.Get(musicGroup);
-        if (data == null || data.clips.Count == 0)
-        {
-            Debug.Log("No audio found for group - " + musicGroup);
-            yield break;
-        }
-
-        AudioClip nextMusic = data.GetRandomClip();
-
-        if (data.clips.Count > 1)
-        {
-            while (nextMusic == lastMusicPlayed)
-                nextMusic = data.GetRandomClip();
-        }
-
-        if (bgmSource.isPlaying)
-            yield return FadeVolumeCo(bgmSource, 0, 1f);
-
-        lastMusicPlayed = nextMusic;
-        bgmSource.clip = nextMusic;
-        bgmSource.volume = 0;
-        bgmSource.Play();
-
-        StartCoroutine(FadeVolumeCo(bgmSource, data.maxVolume, 1f));
-    }
-
-    private IEnumerator FadeVolumeCo(AudioSource source, float targetVolume, float duration)
-    {
-        float time = 0;
-        float startVolume = source.volume;
-
-        while (time < duration)
-        {
-            time += Time.deltaTime;
-
-            source.volume = Mathf.Lerp(startVolume, targetVolume, time / duration);
-            yield return null;
-        }
-
-        source.volume = targetVolume;
-    }
-
-    public void PlaySFX(string soundName, AudioSource sfxSource, float minDistanceToHearSound = 5)
-    {
-        if (player == null)
-            player = Player.instance.transform;
-
-        AudioClipData data = audioDB.Get(soundName);
-        if (data == null)
-            return;
-
-        AudioClip clip = data.GetRandomClip();
-        if (clip == null)
-            return;
-
-        float maxVolume = data.maxVolume;
-        float distance = Vector2.Distance(sfxSource.transform.position, player.position);
-        float t = Mathf.Clamp01(1 - (distance / minDistanceToHearSound));
-
-        sfxSource.pitch = Random.Range(.95f, 1.1f);
-        sfxSource.volume = Mathf.Lerp(0, maxVolume, t * t);
-        sfxSource.PlayOneShot(clip);
-    }
-
-    public void PlayGlobalSFX(string soundName)
-    {
-        AudioClipData data = audioDB.Get(soundName);
-        if (data == null)
-            return;
-
-        AudioClip clip = data.GetRandomClip();
-        if (clip == null)
-            return;
-
-        sfxSource.pitch = Random.Range(.95f, 1.1f);
-        sfxSource.volume = data.maxVolume;
-        sfxSource.PlayOneShot(clip);
-    }
+    source.volume = targetVolume;
 }
 ```
 
