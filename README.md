@@ -20,7 +20,7 @@ Unity 2D로 만든 포트폴리오용 프로젝트입니다.
 </details>
 
 <details>
-    <summary>Interface 기반의 상호작용 시스템</summary>
+    <summary>전투 시스템</summary>
 
 <!-- summary 아래 한칸 공백 두고 내용 삽입 -->
 
@@ -34,11 +34,33 @@ Unity 2D로 만든 포트폴리오용 프로젝트입니다.
 </details>
 
 <details>
-    <summary>저장 시스템</summary>
+    <summary>Save System</summary>
 
 <!-- summary 아래 한칸 공백 두고 내용 삽입 -->
 
 </details>
+
+<details>
+    <summary>UI 컨트롤</summary>
+
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
+
+</details>
+
+<details>
+    <summary>Game Manager</summary>
+
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
+
+</details>
+
+<details>
+    <summary>Audio 시스템</summary>
+
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
+
+</details>
+
 
 ## 트러블슈팅? (기능에 설명하면서 넣으면 사라질 항목)  
 
