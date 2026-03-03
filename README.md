@@ -148,7 +148,7 @@ private Collider2D[] GetDetectedColliders()
 
 ```
 
-## 히트
+## 피격
 ```c#
 
 public virtual bool TakeDamage(float damage, Transform damageDealer)
@@ -250,6 +250,8 @@ public class EntityStats : MonoBehaviour
     public Stat damage;
     public Stat armor;
     public Stat attackSpeed;
+
+    // 필요한거 있으면 추가
 
     public float GetMaxHealth()
     {
@@ -662,7 +664,220 @@ private UI_FadeScreen FindFadeScreenUI()
 <summary>코드</summary>
 <div markdown="1">
 
+## Audio Manager
+```c#
+public class AudioManager : MonoBehaviour
+{
+    public static AudioManager instance;
 
+    [SerializeField] private AudioDatabaseSO audioDB;
+    [SerializeField] private AudioSource bgmSource;
+    [SerializeField] private AudioSource sfxSource;
+    [Space]
+
+    private Transform player;
+
+    private AudioClip lastMusicPlayed;
+    private string currentBgmGroupName;
+    private Coroutine currentBgmCo;
+    [SerializeField] private bool bgmShouldPlay;
+
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(instance);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Update()
+    {
+        if (!bgmSource.isPlaying && bgmShouldPlay)
+        {
+            if (!string.IsNullOrEmpty(currentBgmGroupName))
+                NextBGM(currentBgmGroupName);
+        }
+
+        if (bgmSource.isPlaying && !bgmShouldPlay)
+            StopBGM();
+    }
+
+    public void StartBGM(string musicGroup)
+    {
+        bgmShouldPlay = true;
+
+        if (musicGroup == currentBgmGroupName)
+            return;
+
+        NextBGM(musicGroup);
+    }
+
+    public void NextBGM(string musicGroup)
+    {
+        bgmShouldPlay = true;
+        currentBgmGroupName = musicGroup;
+
+        if (currentBgmCo != null)
+            StopCoroutine(currentBgmCo);
+
+        currentBgmCo = StartCoroutine(SwitchMusicCo(musicGroup));
+    }
+
+    public void StopBGM()
+    {
+        bgmShouldPlay = false;
+
+        StartCoroutine(FadeVolumeCo(bgmSource, 0, 1f));
+
+        if (currentBgmCo != null)
+            StopCoroutine(currentBgmCo);
+    }
+
+    private IEnumerator SwitchMusicCo(string musicGroup)
+    {
+        AudioClipData data = audioDB.Get(musicGroup);
+        if (data == null || data.clips.Count == 0)
+        {
+            Debug.Log("No audio found for group - " + musicGroup);
+            yield break;
+        }
+
+        AudioClip nextMusic = data.GetRandomClip();
+
+        if (data.clips.Count > 1)
+        {
+            while (nextMusic == lastMusicPlayed)
+                nextMusic = data.GetRandomClip();
+        }
+
+        if (bgmSource.isPlaying)
+            yield return FadeVolumeCo(bgmSource, 0, 1f);
+
+        lastMusicPlayed = nextMusic;
+        bgmSource.clip = nextMusic;
+        bgmSource.volume = 0;
+        bgmSource.Play();
+
+        StartCoroutine(FadeVolumeCo(bgmSource, data.maxVolume, 1f));
+    }
+
+    private IEnumerator FadeVolumeCo(AudioSource source, float targetVolume, float duration)
+    {
+        float time = 0;
+        float startVolume = source.volume;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+
+            source.volume = Mathf.Lerp(startVolume, targetVolume, time / duration);
+            yield return null;
+        }
+
+        source.volume = targetVolume;
+    }
+
+    public void PlaySFX(string soundName, AudioSource sfxSource, float minDistanceToHearSound = 5)
+    {
+        if (player == null)
+            player = Player.instance.transform;
+
+        AudioClipData data = audioDB.Get(soundName);
+        if (data == null)
+            return;
+
+        AudioClip clip = data.GetRandomClip();
+        if (clip == null)
+            return;
+
+        float maxVolume = data.maxVolume;
+        float distance = Vector2.Distance(sfxSource.transform.position, player.position);
+        float t = Mathf.Clamp01(1 - (distance / minDistanceToHearSound));
+
+        sfxSource.pitch = Random.Range(.95f, 1.1f);
+        sfxSource.volume = Mathf.Lerp(0, maxVolume, t * t);
+        sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlayGlobalSFX(string soundName)
+    {
+        AudioClipData data = audioDB.Get(soundName);
+        if (data == null)
+            return;
+
+        AudioClip clip = data.GetRandomClip();
+        if (clip == null)
+            return;
+
+        sfxSource.pitch = Random.Range(.95f, 1.1f);
+        sfxSource.volume = data.maxVolume;
+        sfxSource.PlayOneShot(clip);
+    }
+}
+```
+
+## Audio DB
+```c#
+[CreateAssetMenu(menuName = "Audio/Audio Database")]
+public class AudioDatabaseSO : ScriptableObject
+{
+    public List<AudioClipData> player;
+    public List<AudioClipData> uiAudio;
+
+    [Header("Music Lists")]
+    public List<AudioClipData> mainMenu;
+    public List<AudioClipData> level;
+
+    private Dictionary<string, AudioClipData> clipCollection;
+
+    private void OnEnable()
+    {
+        clipCollection = new Dictionary<string, AudioClipData>();
+
+        AddToCollection(player);
+        AddToCollection(uiAudio);
+        AddToCollection(mainMenu);
+        AddToCollection(level);
+    }
+
+    public AudioClipData Get(string groupName)
+    {
+        return clipCollection.TryGetValue(groupName, out var data) ? data : null;
+    }
+
+    private void AddToCollection(List<AudioClipData> listToAdd)
+    {
+        foreach(var data in listToAdd)
+        {
+            if (data != null && !clipCollection.ContainsKey(data.audioName))
+            {
+                clipCollection.Add(data.audioName, data);
+            }
+        }
+    }
+}
+
+[Serializable]
+public class AudioClipData
+{
+    public string audioName;
+    public List<AudioClip> clips = new List<AudioClip>();
+    [Range(0, 1)] public float maxVolume = 1f;
+
+    public AudioClip GetRandomClip()
+    {
+        if (clips.Count == 0 || clips == null) 
+            return null;
+
+        return clips[UnityEngine.Random.Range(0, clips.Count)];
+    }
+}
+```
 
 </div>
 </details>
@@ -677,7 +892,62 @@ private UI_FadeScreen FindFadeScreenUI()
 <summary>코드</summary>
 <div markdown="1">
 
-코드1
+## UI Manager
+```c#
+public class UI : MonoBehaviour
+{
+    public static UI instance;
+
+    private PlayerInputSet input;
+
+    public UI_Options optionsUI { get; private set; }
+    public UI_InGame inGameUI { get; private set; }
+    public UI_DeathScreen deathScreen { get; private set; }
+    public UI_FadeScreen fadeScreen { get; private set; }
+
+    private void Awake()
+    {
+        instance = this;
+
+        optionsUI = GetComponentInChildren<UI_Options>(true);
+        inGameUI = GetComponentInChildren<UI_InGame>(true);
+        deathScreen = GetComponentInChildren<UI_DeathScreen>(true);
+        fadeScreen = GetComponentInChildren<UI_FadeScreen>(true);
+    }
+
+    public void SetupControlsUI(PlayerInputSet inputSet)
+    {
+        input = inputSet;
+
+        input.UI.OptionUI.performed += ctx => ToggleOptionsUI();
+    }
+
+    public void ToggleOptionsUI()
+    {
+        bool enable = optionsUI.gameObject.activeSelf; 
+
+        enable = !enable;   
+        optionsUI.gameObject.SetActive(enable);
+
+        StopPlayerControls(enable);
+        //Time.timeScale = enable ? 0f : 1f;
+    }
+
+    public void OpenDeathScreenUI()
+    {
+        deathScreen.gameObject.SetActive(true);
+        input.Disable();
+    }
+
+    public void StopPlayerControls(bool stopControls)
+    {
+        if (stopControls)
+            input.Player.Disable();
+        else
+            input.Player.Enable();
+    }
+}
+```
 
 </div>
 </details>
