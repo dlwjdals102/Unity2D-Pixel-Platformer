@@ -480,7 +480,7 @@ public class FileDataHandler
 }
 ```
 
-## Save / Load
+## Save & Load (Save Manager)
 ```c#
 public void NewGame()
 {
