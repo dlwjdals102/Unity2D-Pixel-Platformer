@@ -322,6 +322,273 @@ public class StatSetupSO : ScriptableObject
 * 객체 데이터를 JSON 형식으로 변환하여 로컬 저장 기능을 구현하고, Application.persistentDataPath를 활용해 플랫폼 독립적 저장 경로 확보.<br>
 * ISaveable 인터페이스를 구현한 객체들이 SaveManager에 자신을 등록하는 방식을 사용하여 씬 전체 검색 없이 효율적으로 데이터 수집.<br>
 * 슬롯 번호에 따른 파일 네이밍 규칙을 적용하여 다중 세이브 데이터 관리 기능 구현.<br>
+* 데이터 암호화 & 복호화로 데이터를 안전하게 관리.<br>
+
+<details>
+<summary>코드</summary>
+<div markdown="1">
+
+## GameData
+```c#
+[Serializable]
+public class GameData
+{
+    public string lastSceneName;
+
+    public Vector3 playerPosition;
+    public float playerCurrentHealth;
+
+    // 필요한거 있으면 추가
+
+    public GameData()
+    {
+        lastSceneName = "Level_0";
+        playerPosition = Vector3.zero;
+        playerCurrentHealth = 0;
+    }
+}
+
+```
+
+## DataHandler
+```c#
+public class FileDataHandler
+{
+    private string dataDirPath;
+    private string dataFileName;
+
+    private bool useEncryption = false;
+    private readonly string encryptionCodeWord = "secret";
+
+    public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption)
+    {
+        this.dataDirPath = dataDirPath;
+        this.dataFileName = dataFileName;
+        this.useEncryption = useEncryption;
+    }
+
+    public void SavaData(GameData gameData, string profileId)
+    {
+        string fullpath = Path.Combine(dataDirPath, profileId, dataFileName);
+
+        try
+        {
+            // 1. 디렉토리 생성
+            Directory.CreateDirectory(Path.GetDirectoryName(fullpath));
+
+            // 2. gameData -> json으로 전환
+            string dataToSave = JsonUtility.ToJson(gameData, true);
+
+            // 암호화
+            if (useEncryption)
+            {
+                dataToSave = EncryptDecrypt(dataToSave);
+            }
+
+            // 3. 새 파일 열기 (생성)
+            using (FileStream stream = new FileStream(fullpath, FileMode.Create))
+            {
+                // 4. json을 파일에 작성
+                using (StreamWriter write = new StreamWriter(stream))
+                {
+                    write.Write(dataToSave);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error on trying to save data to file: " + fullpath + "\n" + e);
+        }
+    }
+
+    public GameData LoadData(string profileId)
+    {
+        string fullpath = Path.Combine(dataDirPath, profileId, dataFileName);
+
+        GameData loadData = null;
+
+        // 1. 저장된 파일이 있는지 확인
+        if (File.Exists(fullpath))
+        {
+            try
+            {
+                string dataToLoad = "";
+
+                // 2. 파일 열기
+                using (FileStream stream = new FileStream(fullpath, FileMode.Open))
+                {
+                    // 3. 파일 내용 읽기
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        dataToLoad = reader.ReadToEnd();
+                    }
+                }
+
+                // 복호화
+                if (useEncryption)
+                {
+                    dataToLoad = EncryptDecrypt(dataToLoad);
+                }
+
+                // 4. json -> gameData로 전환
+                loadData = JsonUtility.FromJson<GameData>(dataToLoad);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error on trying to load data from file: " + fullpath + "\n" + e);
+            }
+        }
+
+        return loadData;
+    }
+
+    public Dictionary<string, GameData> LoadAllProfiles()
+    {
+        Dictionary<string, GameData> profileDictionary = new Dictionary<string, GameData>();
+
+        IEnumerable<DirectoryInfo> dirInfos = new DirectoryInfo(dataDirPath).EnumerateDirectories();
+        foreach(DirectoryInfo dirInfo in dirInfos)
+        {
+            string profileId = dirInfo.Name;
+
+            string fullpath = Path.Combine(dataDirPath, profileId, dataFileName);
+            if (!File.Exists(fullpath))
+                continue;
+            
+            GameData profileData = LoadData(profileId);
+
+            if (profileData != null)
+                profileDictionary.Add(profileId, profileData);
+        }
+
+        return profileDictionary;
+    }
+
+    private string EncryptDecrypt(string data)
+    {
+        string modifiedData = "";
+        for (int i = 0; i < data.Length; i++)
+        {
+            modifiedData += (char)(data[i] ^ encryptionCodeWord[i % encryptionCodeWord.Length]);
+        }
+        return modifiedData;
+    }
+}
+```
+
+## Save Manager
+```c#
+public class SaveManager : MonoBehaviour
+{
+    public static SaveManager instance;
+
+    [SerializeField] private string fileName = "pfg.json";
+    [SerializeField] private bool useEncryption = false;
+
+    private GameData gameData;
+    private FileDataHandler dataHandler;
+
+    [SerializeField] private string selectedProfileId;
+
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
+    }
+
+    public void ChangeSelectedProfileId(string newProfileId)
+    {
+        selectedProfileId = newProfileId;
+        gameData = dataHandler.LoadData(selectedProfileId);
+    }
+
+    public void NewGame()
+    {
+        gameData = new GameData();
+        dataHandler.SavaData(gameData, selectedProfileId);
+    }
+
+    public void LoadGame()
+    {
+        gameData = dataHandler.LoadData(selectedProfileId);
+
+        if (gameData == null)
+        {
+            Debug.Log("No data was found. A New Game needs to be started before data can be loaded.");
+            return;
+        }
+
+        SyncMemoryToScene();
+    }
+
+    public void SaveGame()
+    {
+        if (gameData == null)
+        {
+            Debug.Log("No data was found. A New Game needs to be started before data can be saved.");
+            return;
+        }
+
+        UpdateSceneToMemory();
+        dataHandler.SavaData(gameData, selectedProfileId);
+    }
+
+    // 메모리 데이터를 씬의 객체들에게 주입 (씬 이동 시 사용)
+    public void SyncMemoryToScene()
+    {
+        foreach (var saveable in FindAllSaveables())
+        {
+            saveable.LoadData(gameData);
+        }
+    }
+
+    // 씬의 객체 데이터를 메모리에만 업데이트 (씬 이동 직전 사용)
+    public void UpdateSceneToMemory()
+    {
+        if (gameData == null)
+            return;
+
+        foreach (var saveable in FindAllSaveables())
+        {
+            saveable.SaveData(ref gameData);
+        }
+    }
+
+    private List<ISaveable> FindAllSaveables()
+    {
+        return
+            FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .OfType<ISaveable>()
+            .ToList();
+    }
+    public bool HasGameData()
+    {
+        return gameData != null;
+    }
+
+    public Dictionary<string, GameData> GetAllProfilesGameData()
+    {
+        return dataHandler.LoadAllProfiles();
+    }
+
+    internal GameData GetSavedGameData()
+    {
+        return gameData;
+    }
+}
+```
+
+</div>
+</details>
 
 <br>
 
@@ -334,7 +601,52 @@ public class StatSetupSO : ScriptableObject
 <summary>코드</summary>
 <div markdown="1">
 
-코드1
+## Change Scene
+```c#
+public void ChangeScene(string sceneName, RespawnType respawnType)
+{
+    //Time.timeScale = 1;
+    StartCoroutine(ChangeSceneCo(sceneName, respawnType));
+}
+
+private IEnumerator ChangeSceneCo(string sceneName, RespawnType respawnType)
+{
+    UI_FadeScreen fadeScreen = FindFadeScreenUI();
+
+    fadeScreen.DoFadeOut();
+    yield return fadeScreen.fadeEffectCo;
+
+    // 씬 로드 전 메모리 저장 (파일저장 X)
+    SaveManager.instance.UpdateSceneToMemory();
+
+    // 씬 로드 실행
+    AsyncOperation op = SceneManager.LoadSceneAsync(sceneName);
+    while(!op.isDone) yield return null;
+
+    // 씬 로드 완료 후 데이터 주입
+    if (respawnType == RespawnType.Load)
+        SaveManager.instance.LoadGame();
+    else if (respawnType == RespawnType.Enter || respawnType == RespawnType.Exit)
+    {
+        SaveManager.instance.SyncMemoryToScene();
+
+        Player player = Player.instance;
+        player.Teleport(GetWaypointPosition(respawnType));
+    }
+
+    // 씬 전환 후 참조를 잃을 가능성이 높음
+    fadeScreen = FindFadeScreenUI();
+    fadeScreen.DoFadeIn();
+}
+
+private UI_FadeScreen FindFadeScreenUI()
+{
+    if (UI.instance != null)
+        return UI.instance.fadeScreen;
+    else
+        return FindFirstObjectByType<UI_FadeScreen>();
+}
+```
 
 </div>
 </details>
@@ -350,7 +662,7 @@ public class StatSetupSO : ScriptableObject
 <summary>코드</summary>
 <div markdown="1">
 
-코드1
+
 
 </div>
 </details>
