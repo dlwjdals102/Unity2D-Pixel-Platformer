@@ -20,7 +20,86 @@ Unity 2D로 만든 포트폴리오용 프로젝트입니다.
 <summary>코드</summary>
 <div markdown="1">
 
-코드1
+## State
+```c#
+public abstract class EntityState
+{
+    protected StateMachine stateMachine;
+    protected string animBoolName;
+
+    protected Animator anim;
+    protected Rigidbody2D rb;
+
+    protected float stateTimer;
+    protected bool triggerCalled;
+
+    public EntityState(StateMachine stateMachine, string animBoolName)
+    {
+        this.stateMachine = stateMachine;
+        this.animBoolName = animBoolName;
+    }
+
+    public virtual void Enter()
+    {
+        anim.SetBool(animBoolName, true);
+        triggerCalled = false;
+    }
+
+    public virtual void Update()
+    {
+        stateTimer -= Time.deltaTime;
+        UpdateAnimationParameters();
+    }
+
+    public virtual void Exit()
+    {
+        anim.SetBool(animBoolName, false);
+    }
+
+    public virtual void UpdateAnimationParameters()
+    {
+    
+    }
+}
+
+```
+
+## StateMachine
+```c#
+public class StateMachine 
+{
+    public EntityState currentState { get; private set; }
+    public bool canChangeState;
+
+    public void Initialize(EntityState startState)
+    {
+        canChangeState = true;
+        currentState = startState;
+        currentState.Enter();
+    }
+
+    public void ChangeState(EntityState newState)
+    {
+        if (!canChangeState)
+            return;
+
+        currentState.Exit();
+        currentState = newState;
+        currentState.Enter();
+    }
+
+    public void UpdateActiveState()
+    {
+        currentState.Update();        
+    }
+
+    public void SwitchOffStateMachine()
+    {
+        canChangeState = false;
+    }
+}
+
+```
 
 </div>
 </details>
@@ -36,8 +115,59 @@ Unity 2D로 만든 포트폴리오용 프로젝트입니다.
 <details>
 <summary>코드</summary>
 <div markdown="1">
+  
+## 공격
+```c#
+public void PerformAttack()
+{
+    bool targetGotHit = false;
 
-코드1
+    foreach (var target in GetDetectedColliders())
+    {
+        IDamageable damageable = target.GetComponent<IDamageable>();
+
+        if (damageable == null) continue;
+        
+        targetGotHit = damageable.TakeDamage(stats.GetDamage(), transform);
+
+        if (targetGotHit)
+        {
+            vfx?.CreateOnHitVFX(target.transform);
+            sfx?.PlayAttackHit();
+        }
+    }
+
+    if (!targetGotHit)
+        sfx?.PlayAttackMiss();
+}
+
+private Collider2D[] GetDetectedColliders()
+{
+    return Physics2D.OverlapCircleAll(targetCheck.position, targetCheckRadius, whatIsTarget);
+}
+
+```
+
+## 히트
+```c#
+
+public virtual bool TakeDamage(float damage, Transform damageDealer)
+{
+    if (isDead) return false;
+
+    if (entity != null)
+    {
+        Vector2 knockback = CalculateKnockback(damage, damageDealer);
+        float duration = CalculateDuration(damage);
+        entity.ReciveKnockback(knockback, duration);
+    }
+
+    ReduceHealth(damage);
+
+    return true;
+}
+
+```
 
 </div>
 </details>
@@ -53,7 +183,134 @@ Unity 2D로 만든 포트폴리오용 프로젝트입니다.
 <summary>코드</summary>
 <div markdown="1">
 
-코드1
+## Stat
+```c#
+[System.Serializable]
+public class Stat
+{
+    [SerializeField] private float value;
+    [SerializeField] private List<StatModifier> modifiers = new List<StatModifier>(); 
+
+
+    public float GetValue()
+    {
+        return GetFinalValue();
+    }
+
+    public void SetValue(float value)
+    {
+        this.value = value;
+    }
+
+    public void AddModifier(float value, string source)
+    {
+        StatModifier modToAdd = new StatModifier(value, source);
+        modifiers.Add(modToAdd);
+    }
+
+    public void RemoveModifier(string source)
+    {
+        modifiers.RemoveAll(modifiers => modifiers.source == source);
+    }
+
+    private float GetFinalValue()
+    {
+        float finalValue = value;
+
+        foreach (var modifier in modifiers)
+        {
+            finalValue += modifier.value;
+        }
+
+        return finalValue;
+    }
+}
+
+[System.Serializable]
+public class StatModifier
+{
+    public float value;
+    public string source;
+
+    public StatModifier(float value, string source)
+    {
+        this.value = value;
+        this.source = source;
+    }
+}
+
+```
+## Entity Stats
+```c#
+public class EntityStats : MonoBehaviour
+{
+    public StatSetupSO defaultStatSetup;
+
+    public Stat maxHealth;
+    public Stat damage;
+    public Stat armor;
+    public Stat attackSpeed;
+
+    public float GetMaxHealth()
+    {
+        return maxHealth.GetValue();
+    }
+
+    public float GetDamage()
+    {
+        return damage.GetValue();
+    }
+
+    public float GetArmor()
+    {
+        return armor.GetValue();
+    }
+
+    public float GetAttackSpeed()
+    {
+        return attackSpeed.GetValue();
+    }
+
+
+    [ContextMenu("Update Default Stat Setup")]
+    public void ApplyDefaultStatSetup()
+    {
+        if (defaultStatSetup == null)
+        {
+            Debug.Log("No default stat setup assigned");
+            return;
+        }
+
+        maxHealth.SetValue(defaultStatSetup.maxHealth);
+        damage.SetValue(defaultStatSetup.damage);
+        armor.SetValue(defaultStatSetup.armor);
+        attackSpeed.SetValue(defaultStatSetup.attackSpeed);
+    }
+}
+
+
+```
+
+## StatSetupSO (ScriptableObject)
+```c#
+[CreateAssetMenu(menuName = "RPG Setup/Defalut Stat Setup", fileName = "Default Stat Setup")]
+public class StatSetupSO : ScriptableObject
+{
+    [Header("Resources")]
+    public float maxHealth = 100;
+
+    [Header("Offense")]
+    public float damage = 10;
+    public float magicDamage = 12;
+    public float attackSpeed = 1;
+
+    [Header("Defense")]
+    public float armor;
+
+    // 필요한 거 있으면 추가
+}
+
+```
 
 </div>
 </details>
