@@ -11,10 +11,33 @@ Unity 2D로 만든 포트폴리오용 프로젝트입니다.
 기술 : Unity2D, C#   
 
 ## 핵심 기능
-1. FSM 기반 캐릭터 제어
-3. Interface 기반의 상호작용 시스템
-4. ScriptableObject 기반의 데이터 시스템
-5. 저장 시스템 (Save & Load)
+<details>
+    <summary>FSM 기반 캐릭터 제어</summary>
+
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
+
+</details>
+
+<details>
+    <summary>Interface 기반의 상호작용 시스템</summary>
+
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
+
+</details>
+
+<details>
+    <summary>ScriptableObject 기반의 데이터 시스템</summary>
+
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
+
+</details>
+
+<details>
+    <summary>저장 시스템</summary>
+
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
+
+</details>
 
 ## 트러블슈팅? (기능에 설명하면서 넣으면 사라질 항목)  
 
