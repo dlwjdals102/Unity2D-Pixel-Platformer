@@ -5,6 +5,11 @@ Unity 2D로 만든 포트폴리오용 프로젝트입니다.<br><br>
 플랫폼, 액션 RPG 장르를 참고해서 제작했습니다.<br>
 여러 맵을 탐험하고 실시간으로 적들과 전투를 치르는 게임입니다.<br><br>
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8ed84724-3b64-4659-8ccf-235e6731dab9" height="250">
+  <img src="https://github.com/user-attachments/assets/a07452cd-9dd2-4dcc-bca2-723ab946c191" height="250">
+</p>
+
 개발 기간 : 2025.02.14 ~ 2025.03.02<br> 
 개발 인원 : 1인 개발<br>
 엔진 : Unity 6.3 LTS (6000.3.9f1)<br>
