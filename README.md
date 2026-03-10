@@ -16,6 +16,12 @@ Unity 2D로 만든 포트폴리오용 프로젝트입니다.<br><br>
 언어 : C#<br>
 <br>
 
+## 플레이 영상
+
+https://github.com/user-attachments/assets/0589a7b3-b6df-40e8-9b81-ec92691f0547
+
+<br>
+
 ## 핵심 기능
 ### FSM 기반 캐릭터 제어
 * 추상 클래스 기반의 상태패턴을 도입하여 각 동작 (Idle, Move, Attack 등)을 독립된 클래스로 캡슐화.<br>
