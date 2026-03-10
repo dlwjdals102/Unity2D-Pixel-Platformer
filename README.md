@@ -863,8 +863,6 @@ public class UI : MonoBehaviour
 
 <br>
 
-## 시연영상
-
 
 
 
