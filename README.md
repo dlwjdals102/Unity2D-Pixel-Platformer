@@ -18,7 +18,9 @@ Unity 2D로 만든 포트폴리오용 프로젝트입니다.<br><br>
 
 ## 플레이 영상
 
-https://github.com/user-attachments/assets/0589a7b3-b6df-40e8-9b81-ec92691f0547
+
+https://github.com/user-attachments/assets/e422f270-192d-47ea-aebe-5318e18f6b5a
+
 
 <br>
 
